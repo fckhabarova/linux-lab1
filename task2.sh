@@ -2,7 +2,7 @@
 
 DOC_DIR="/usr/share/doc/khabarova"
 
-sudo install -m 754 myapp /usr/bin/myapp
+sudo install -m 755 myapp /usr/bin/myapp
 
 sudo install -m 644 mylib.lib /usr/lib/mylib.lib
 

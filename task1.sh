@@ -1,5 +1,12 @@
-
 #!/bin/bash
-COUNT=$(find "$HOME" -type d -path '*/.*' -prune -o -type f -newermt "$(date +%Y-%m-%d)" -print | wc -l)
-echo "Количество файлов в домашнем каталоге, созданных или измененных сегодня: $COUNT"
 
+TODAY=$(date +%Y-%m-%d)
+COUNT=0
+
+for file in /home/fckhabarova/*; do
+    if [ -f "$file" ] && [ "$(date -r "$file" +%Y-%m-%d)" = "$TODAY" ]; then
+        COUNT=$((COUNT + 1))
+    fi
+done
+
+echo "Count : $COUNT"
